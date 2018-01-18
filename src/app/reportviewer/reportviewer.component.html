@@ -8,11 +8,11 @@
 <h2>Essential JavaScript ReportViewer </h2>
 <ej-reportviewer id="reportViewer_Control"
 	[reportServiceUrl] = "serviceUrl" 
-	[processingMode] = "Remote"
-	[reportServerUrl] = "serverUrl"
-	[reportPath] = "reportPath" 
-	[dataSources]="reportData" 
+	[processingMode] = "Remote"	
+	[reportPath] = "reportPath" 	
 	[parameters] = "parameters"	
+	[toolbarSettings] = "toolbarSettings"
+	(ajaxBeforeLoad)="onAjaxBeforeLoad($event)"
 	>
 </ej-reportviewer>
 

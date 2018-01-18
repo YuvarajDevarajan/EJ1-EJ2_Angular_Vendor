@@ -18,13 +18,27 @@ export class ReportViewerComponent {
     public title = 'Average Sales Comparison';
 
     constructor() {       
-	   this.serviceUrl = 'http://js.syncfusion.com/ejservices/api/ReportViewer';        
-        
-           this.reportPath = 'GroupingAgg.rdl'; 
+	   this.serviceUrl = 'http://localhost:57658/api/ReportApi';        
+        this.reportPath = 'Company Sales.rdl'; 
+		this.parameters = [{
+			name: 'ReportParameter', 
+			labels: ['Sample Data'], 
+			values: ['Sample Data'], 
+			nullable: false 
+			}];
+	    this.toolbarSettings = {
+               items: ~ej.ReportViewer.ToolbarItems.Parameters
+        }; 
     }	
-	reportError(event){         
-        alert("Triggers after the suggestion list is opened.");         
-        } 	
+	
+
+	onAjaxBeforeLoad(args){            		           
+           				
+            args.headerReq.push({    //Pass the header value
+                Key: "Authorization",
+                Value: "MyToken"
+            }); 			             
+        }			
 }
 
 
